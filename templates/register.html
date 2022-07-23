@@ -1,0 +1,53 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{%static 'css/signup.css'%}" />
+    <title>Signup</title>
+  </head>
+  <body class="body">
+    <div class="heading">Register</div>
+    <div class="container">
+        <div>
+            
+            {% for message in messages%}
+          <span class='alert'>  <h1 class ="alerthead">Error !</h1> <h2 class="alertcontent">{{message}}</h2><span>
+            {% endfor %}
+
+
+        </div>
+    
+
+      <form action="" method="post" target='_self' id="reg">
+        {% csrf_token %}
+        <span
+          ><label>Name </label><br />
+          <input id="username" type="text" class="input" name="username" /> </span
+        ><br />
+
+        <span>
+          <label>Email </label><br />
+          <input id="email" type="email" class="input" name="email" /> </span
+        ><br />
+        <span>
+          <label>Password </label><br /><input
+            id="pass"
+            type="password"
+            class="input"
+            name="pass"
+          /> </span
+        ><br />
+
+        <span>
+          <label for="pass1">Verify</label><br />
+          <input id="pass1" type="password" class="input" name="pass1"/><br />
+        </span>
+
+        <button type="submit" class="button">Signup</button>
+      </form>
+    </div>
+  </body>
+</html>

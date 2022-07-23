@@ -1,0 +1,37 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+    
+</head>
+<body>
+    <script src="{%static 'js/login.js'%}"></script>
+    <div class="heading">Login</div>
+    <div>
+        <div>
+            
+            {% for message in messages%}
+          <span class='alert'>  <h1 class ="alerthead">Error !</h1> <h2 class="alertcontent">{{message}}</h2><span>
+            {% endfor %}
+
+
+        </div>
+        <form method="post" class="container" id="log" name="loginform" action="" target="_self">
+            {% csrf_token %}
+            <span><label for="email">Email</label><br>
+                <input type="email" name="email" id="email" ></span>
+            <span><label for="pass">Password</label><br>
+                <input type="password" name="pass" id="pass" ></span>
+            <button type="submit" class="button" >Login</button>
+
+
+        </form >
+    </div>
+    
+</body>
+</html>

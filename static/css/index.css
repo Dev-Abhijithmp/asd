@@ -1,0 +1,54 @@
+.heading{
+
+    margin-top: 150px;
+    text-align: center;
+    font-size: 45pt;
+    color: rgb(144, 200, 172);
+}
+.parent{
+    margin-top: 400px;
+    align-items: center;
+    align-self: center;
+    position: absolute;
+    
+
+}
+a:link, a:visited,  a:hover, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}
+.child{
+    flex: auto;
+    align-content: center;
+    
+}
+.register{
+    margin: 30px;
+
+    text-align: center;
+    color: white;
+    background-color: rgb(144, 200, 172);
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    padding-top: 5px;
+}
+.login{
+    padding-top: 5px;
+    margin: 30px;
+
+    text-align: center;
+    color: rgb(144, 200, 172);
+    background-color: white;
+    border-radius: 20px;
+    border: solid rgb(144, 200, 172) 2px;
+    width: 200px;
+    height: 30px;
+}
+.container{
+    display: flex;
+    flex: auto;
+    flex-direction: column;    
+    -ms-flex-align: baseline;
+}
