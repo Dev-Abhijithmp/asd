@@ -39,7 +39,8 @@
       color: rgb(144, 200, 172);
       font-size: 20pt;
       font-weight: 700;
-      /* background-color: rgb(144, 200, 172);
+      /* color: white;
+      background-color: rgb(144, 200, 172);
       border-radius: 10px; */
       
       
@@ -47,21 +48,3 @@
   .navbaritems:hover{
       color: #000000;
   }
-  .container{
-      padding: 1rem;
-      margin: 1rem;
-      margin-left: 2rem;
-  }
-  .button{
-      margin-top: 6rem;
-      width: 6rem;
-      height: 2rem;
-      border-radius: 10px;
-  }
-a:link,
-a:visited,
-a:hover,
-a:active {
-
-  text-decoration: none;
-}

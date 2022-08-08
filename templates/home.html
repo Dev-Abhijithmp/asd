@@ -9,32 +9,43 @@
     <link rel="stylesheet" href="{%static 'css/home.css'%}">
 </head>
 <body>
- <div class="navcontainer">
-    <div class="heading">Welcome</div>
-    <div class="space"></div>
-    <nav class="navbar">
-        <a class="navbaritems">Home</a>
-        <a class="navbaritems">Training</a>
-        <a class="navbaritems">Guidelines</a>
-        <a class="navbaritems" href="logout">LogOut</a>
-      </nav>  
- </div> 
- <div>
-    <h1>Answer these 20 questions</h1>
-    <br>
-  <div class="container">
-    <h3>1. Have you ever Wondered if your child might be deaf?</h3>
-    <label for="check1">yes</label>
+  
+  
+  <div class="navcontainer">
+     <div class="heading">Welcome</div>
+     <div class="space"></div>
+     <nav class="navbar">
+         <a class="navbaritems">Home</a>
+         <a class="navbaritems">Training</a>
+         <a class="navbaritems" href="{%url 'guidelines'%}">Guidelines</a>
+         <a class="navbaritems" href="{%url 'logout'%}">LogOut</a>
+       </nav>  
+  </div> 
+  <div>
     
-    <input type="radio" name="ans" id="yes" value="yes">
-    <label for="check1">no</label>
-    <input type="radio" name="ans" id="no" value="no">
-    <br><br>
-    <button class="button">proceed</button>
+     <br>
+   <div class="container">
+   <span style="display: flex;">  <h1>Answer this </h1><h1 id="num"></h1><h1> Questions</h1></span>
+     <h3 id="qn"></h3>
+    
+ 
+     {{ data|json_script:'data' }}
+    
+ 
+  
+     <label for="check1">yes</label>
+     
+     <input type="radio" name="ans" id="yes" value="yes">
+     <label for="check1">no</label>
+     <input type="radio" name="ans" id="no" value="no" checked>
+     <br><br>
+     <button class="button" id="btn" name="btn" onclick="calcscore()">Next</button>
+    
+   </div>
+ 
   </div>
-
- </div>
-   
     
-</body>
+  <script src="{%static 'js/home.js'%}"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ </body>
 </html>

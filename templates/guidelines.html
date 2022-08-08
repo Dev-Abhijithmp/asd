@@ -1,0 +1,34 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/guidelines.css'%}">
+    <title>Guidelines</title>
+  </head>
+  <body>
+    <div class="navcontainer">
+      <div class="heading">Guidelines</div>
+      <div class="space"></div>
+      <nav class="navbar">
+        <a class="navbaritems">Home</a>
+        <a class="navbaritems">Training</a>
+        <a class="navbaritems">Guidelines</a>
+        <a class="navbaritems">LogOut</a>
+      </nav>
+    </div>
+    <br>
+    <div class="content">
+        {%for i in data%}
+        
+     <details>
+      <summary>{{i.heading}}</summary>
+      <p>{{i.desc}}</p>
+     </details>
+     {%endfor%}
+    
+    </div>
+  </body>
+</html>

@@ -6,8 +6,15 @@ from django.contrib.auth.models import User
 
 class Questions(models.Model):
     question = models.CharField(max_length=255)
-    ref_image = models.ImageField(upload_to='images/',)
+    helpdata = models.CharField(max_length=255, default='')
+    # ref_image = models.ImageField(upload_to='images/', blank=True, null=True)
     answer = models.CharField(max_length=255)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return self.question
+
+class Guidelines(models.Model):
+    heading = models.CharField(max_length=100)
+    desc = models.CharField(max_length=500)
+    def __str__(self):
+        return self.heading
+
