@@ -1,79 +1,86 @@
 .heading {
-    margin-top: 10px;
-    text-align: left;
-    font-size: 30pt;
-    color: rgb(144, 200, 172);
-    text-shadow: #000000;
-    box-shadow: 2px;
-    align-self: flex-start;
-  }
-  .space {
-    width: 80%;
-  }
-  #num {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .navcontainer {
-    display: flex;
-    align-content: space-between;
-  }
-  
-  .navbar {
-    display: flex;
-  }
-  .navbaritems {
-    margin-top: 15px;
-  
-    margin-left: 20px;
-    margin-right: 20px;
-  
-    text-align: center;
-    color: rgb(144, 200, 172);
-    font-size: 20pt;
-    width: 100%;
-  }
-  
-  .navbaritems:hover {
-    transform: translate(0, 10px);
-  }
-  .content{
-      margin-left: 1rem;
-      margin-top: 20px;
-  }
-  .container {
-    padding: 1rem;
-    margin: 1rem;
-    margin-left: 2rem;
-  }
-  .button {
-    margin-top: 6rem;
-    width: 6rem;
-    height: 2rem;
-    border-radius: 10px;
-  }
-  .guidelinehead {
-    margin-top: 10px;
-    text-align: left;
-    font-size: 20pt;
-    color: black;
-    text-shadow: #000000;
-    box-shadow: 2px;
-    align-self: flex-start;
-    font-weight: 600;
-  }
-  .guideline {
-    width: 50rem;
-    text-overflow: ellipsis;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    text-align: left;
-    font-size: 20pt;
-    color: black;
-    text-shadow: #000000;
-    box-shadow: 2px;
-    align-self: flex-start;
-    font-weight: 300;
-  }
-  
+  margin-top: 10px;
+  text-align: left;
+  font-size: 30pt;
+  color: rgb(144, 200, 172);
+  text-shadow: #000000;
+  box-shadow: 2px;
+  align-self: flex-start;
+}
+.space {
+  width: 80%;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+#num {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navcontainer {
+  display: flex;
+  align-content: space-between;
+}
+
+.navbar {
+  display: flex;
+}
+.navbaritems {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: rgb(144, 200, 172);
+  font-size: 20pt;
+  font-weight: 700;
+}
+
+.navbaritems:hover {
+  color: #000000;
+}
+.content {
+  margin-left: 1rem;
+  margin-top: 20px;
+}
+.container {
+  padding: 1rem;
+  margin: 1rem;
+  margin-left: 2rem;
+}
+.button {
+  margin-top: 6rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+.guidelinehead {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 20pt;
+  color: black;
+  text-shadow: #000000;
+  box-shadow: 2px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+.guideline {
+  width: 50rem;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 20pt;
+  color: black;
+  text-shadow: #000000;
+  box-shadow: 2px;
+  align-self: flex-start;
+  font-weight: 300;
+}

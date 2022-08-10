@@ -13,20 +13,20 @@
       <div class="heading">Guidelines</div>
       <div class="space"></div>
       <nav class="navbar">
-        <a class="navbaritems">Home</a>
-        <a class="navbaritems">Training</a>
-        <a class="navbaritems">Guidelines</a>
-        <a class="navbaritems">LogOut</a>
+        <a class="navbaritems " href="{%url 'home'%}">Home</a>
+        <a class="navbaritems">Games</a>
+        <a class="navbaritems" href="{%url 'guidelines'%}">Guidelines</a>
+        <a class="navbaritems" href="{%url 'logout'%}">LogOut</a>
       </nav>
     </div>
     <br>
     <div class="content">
         {%for i in data%}
         
-     <details>
-      <summary>{{i.heading}}</summary>
-      <p>{{i.desc}}</p>
-     </details>
+     <dl>
+      <dt><h2>{{i.id}}.&nbsp{{i.heading}}</h2></dt>
+      <dd>{{i.desc}}</dd>
+     </dl>
      {%endfor%}
     
     </div>

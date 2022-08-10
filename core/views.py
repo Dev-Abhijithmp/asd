@@ -35,7 +35,8 @@ def login(request):
             return render(request, 'login.html')
 
     else:
-        return render(request, 'login.html')
+        print("in get method" )
+        return render(request,'login.html')
 
 
 def register(request):
