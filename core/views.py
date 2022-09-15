@@ -6,8 +6,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
-
-
+import reportlab
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+import io
 from core.models import Guidelines, Questions
 
 # Create your views here.
@@ -98,3 +100,26 @@ def guidelines(request):
 def logout(request):
     auth.logout(request)
     return render(request, 'index.html')
+
+
+
+@login_required(login_url='login')
+def generate_pdf(request):
+    # Create a file-like buffer to receive PDF data.
+    buffer = io.BytesIO()
+
+    # Create the PDF object, using the buffer as its "file."
+    p = canvas.Canvas(buffer)
+
+    # Draw things on the PDF. Here's where the PDF generation happens.
+    # See the ReportLab documentation for the full list of functionality.
+    p.drawString(100, 100, "your score = ")
+
+    # Close the PDF object cleanly, and we're done.
+    p.showPage()
+    p.save()
+
+    # FileResponse sets the Content-Disposition header so that browsers
+    # present the option to save the file.
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename='hello.pdf')

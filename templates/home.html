@@ -15,8 +15,8 @@
      <div class="heading">Welcome</div>
      <div class="space"></div>
      <nav class="navbar">
-         <a class="navbaritems">Home</a>
-         <a class="navbaritems">Games</a>
+         <a class="navbaritems" href="{%url 'home'%}">Home</a>
+         {% comment %} <a class="navbaritems">Games</a> {% endcomment %}
          <a class="navbaritems" href="{%url 'guidelines'%}">Guidelines</a>
          <a class="navbaritems" href="{%url 'logout'%}">LogOut</a>
        </nav>  
