@@ -1,3 +1,4 @@
+import re
 from sre_parse import TYPE_FLAGS
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -76,17 +77,21 @@ def home(request):
 @login_required(login_url='login')
 @csrf_exempt
 def scorepage(request):
-    print(request)
-    if request.method == 'POST':
-        print("hai")
+    # print(request)
+    
+    # print("hai")
         
-        ds = request.POST.get('data')
+    # ds = request.POST.get('data')
+    # print(ds)
+        
  
-    m= json.loads(ds)
-    print(m[0]['question'])
-   
-
-    return redirect('/')
+    # m= json.loads(ds)
+    # print(m[0]['question'])
+    score =request.GET.get('score')
+    context= {
+        'score':score
+    }
+    return render(request,'scorepage.html',context)
 
 @login_required(login_url='login')
 def guidelines(request):
@@ -105,6 +110,7 @@ def logout(request):
 
 @login_required(login_url='login')
 def generate_pdf(request):
+    d =5
     # Create a file-like buffer to receive PDF data.
     buffer = io.BytesIO()
 

@@ -3,20 +3,20 @@ var rawdata = document.getElementById("data").textContent;
 
 
 var data = JSON.parse(rawdata);
-console.table(data);
+// console.table(data);
 
 let n = 0
 let score = 0
 let qndata = []
-for (const i of data) {
-  console.table(i)
-}
+// for (const i of data) {
+//   console.table(i)
+// }
 
 document.getElementById("qn").innerHTML = data[0]["fields"]["question"]
 document.getElementById("num").innerHTML = " " + data.length + " "
 
 function calcscore() {
-  console.log(data);
+  // console.log(data);
 
   n++;
   if (n <= data.length) {
@@ -44,9 +44,9 @@ function calcscore() {
       document.getElementById("btn").innerHTML = "Submit"
 
     }
-    for (const i of qndata) {
-        console.table(i);
-      }
+    // for (const i of qndata) {
+    //     console.table(i);
+    //   }
   } else {
     
     // var xhttp = new XMLHttpRequest()
@@ -57,16 +57,23 @@ function calcscore() {
     // xhttp.s({'data':senddata})
     $.ajax({
         type: 'POST',
-        url: '/score',
+        url: 'score',
         data: {
             'data':senddata
         },
     });
 
     
-    // location.href = "score/" + score;
+    
   }
 
-  console.log("iteration value : ", n)
-  console.log("score = ", score);
+  // console.log("iteration value : ", n)
+  // console.log("score = ", score);
+  
+  if (document.getElementById("btn").innerHTML == "Submit") {
+    console.log(qndata)
+    location.href = "score/?score=" + score+'&qndata='+qndata;
+    
+  }
+  
 }

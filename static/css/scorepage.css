@@ -42,8 +42,15 @@
       /* color: white;
       background-color: rgb(144, 200, 172);
       border-radius: 10px; */
+
       
-      
+  }
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+  
+    text-decoration: none;
   }
   .navbaritems:hover{
       color: #000000;

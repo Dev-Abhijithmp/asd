@@ -30,8 +30,9 @@
     
  
      {{ data|json_script:'data' }}
-    
- 
+     {% comment %} <form id="frm" action="score" method="post">
+      {% csrf_token %}
+       {% endcomment %}
   
      <label for="check1">yes</label>
      
@@ -40,6 +41,9 @@
      <input type="radio" name="ans" id="no" value="no" checked>
      <br><br>
      <button class="button" id="btn" name="btn" onclick="calcscore()">Next</button>
+     {% comment %} <button class="button" id="sub" name="subbtn" onclick="submit" type="submit">submit</button> {% endcomment %}
+     {% comment %} </form> {% endcomment %}
+     
     
    </div>
  
