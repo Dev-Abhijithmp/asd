@@ -1,3 +1,4 @@
+from multiprocessing import context
 import re
 from sre_parse import TYPE_FLAGS
 from django.views.decorators.csrf import csrf_exempt
@@ -18,8 +19,10 @@ from core.models import Guidelines, Questions
 
 def index(request):
     print(request.user)
-
-    return render(request, 'index.html')
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(request, 'index.html')
 
 
 def login(request):
@@ -38,7 +41,6 @@ def login(request):
             return render(request, 'login.html')
 
     else:
-        print("in get method" )
         return render(request,'login.html')
 
 
@@ -70,24 +72,38 @@ def register(request):
 def home(request):
     print(request)
 
-    qn = Questions.objects.all()
-    tmpjson = serializers.serialize('json', qn)
-    data = json.loads(tmpjson)
-    return render(request, 'home.html', {'data': data})
+    data = Questions.objects.all()
+    # tmpjson = serializers.serialize('json', qn)
+    # data = json.loads(tmpjson)
+    context={
+        'data':data
+    }
+    return render(request, 'home.html', context)
 @login_required(login_url='login')
 @csrf_exempt
 def scorepage(request):
-    # print(request)
+    # print(request.POST)
+    ansdata= request.POST
     
-    # print("hai")
-        
-    # ds = request.POST.get('data')
-    # print(ds)
+    print("in score page")
+    rawdata =Questions.objects.all()
+    
+    i =1
+    score =0
+    tmpjson = serializers.serialize('json', rawdata)
+    m =json.loads(tmpjson)
+    
+    while i<= len(m):
+        if ansdata.get('ans'+str(i)) == m[i-1]['fields']['answer']:
+            score =score+1
+        i=i+1
+    print(score)
+
         
  
     # m= json.loads(ds)
     # print(m[0]['question'])
-    score =request.GET.get('score')
+    
     context= {
         'score':score
     }

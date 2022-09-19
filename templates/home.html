@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="{%static 'css/home.css'%}">
 </head>
 <body>
+  <script src="{%static 'js/formvalidate.js'%}"></script>
   
   
   <div class="navcontainer">
      <div class="heading">Welcome</div>
      <div class="space"></div>
      <nav class="navbar">
-         <a class="navbaritems" href="{%url 'home'%}">Home</a>
-         {% comment %} <a class="navbaritems">Games</a> {% endcomment %}
+         <a class="navbaritems">Home</a>
+          <a class="navbaritems">Training</a> 
          <a class="navbaritems" href="{%url 'guidelines'%}">Guidelines</a>
-         <a class="navbaritems" href="{%url 'logout'%}">LogOut</a>
+         <a class="navbaritems" href="{%url 'logout'%}">Logout</a>
        </nav>  
   </div> 
   <div>
@@ -26,30 +27,31 @@
      <br>
    <div class="container">
    <span style="display: flex;">  <h1>Answer these Questions</h1></span>
-     <h3 id="qn"></h3>
+     
     
  
-     {{ data|json_script:'data' }}
-     {% comment %} <form id="frm" action="score" method="post">
+
+   <form id="frm" action="score" method="post" onsubmit ="validate()"> 
       {% csrf_token %}
-       {% endcomment %}
-  
-     <label for="check1">yes</label>
+      {%for i in data %}
+
+      <h3 id="qn">{{i.slnum}} . {{i.question}}</h3>
+      <h4>{{i.helpdata}}<h4>
+     <label for="yes">yes</label>
      
-     <input type="radio" name="ans" id="yes" value="yes">
-     <label for="check1">no</label>
-     <input type="radio" name="ans" id="no" value="no" checked>
+     <input type="radio" name="ans{{i.slnum}}" id="yes" value="yes">
+     <label for="no">no</label>
+     <input type="radio" name="ans{{i.slnum}}" id="no" value="no">
+     {%endfor%}
      <br><br>
-     <button class="button" id="btn" name="btn" onclick="calcscore()">Next</button>
-     {% comment %} <button class="button" id="sub" name="subbtn" onclick="submit" type="submit">submit</button> {% endcomment %}
-     {% comment %} </form> {% endcomment %}
+     <button class="button" id="sub" name="subbtn" type="submit">submit</button>
+     </form>
      
     
    </div>
  
   </div>
     
-  <script src="{%static 'js/home.js'%}"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
  </body>
 </html>

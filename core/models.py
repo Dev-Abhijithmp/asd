@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Questions(models.Model):
+    slnum = models.IntegerField()
     question = models.CharField(max_length=255)
-    helpdata = models.CharField(max_length=255, default='')
+    helpdata = models.CharField(max_length=255, default='', blank=True)
     # ref_image = models.ImageField(upload_to='images/', blank=True, null=True)
     answer = models.CharField(max_length=255)
     def __str__(self):
