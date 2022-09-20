@@ -45,9 +45,20 @@ a:active {
 .navbaritems:hover {
   color: #000000;
 }
-.content {
-  margin-left: 1rem;
+.content{
+  margin-left: 2rem;
   margin-top: 20px;
+}
+
+dd{
+  margin: 5px;
+  padding-bottom: 1rem;
+  font-family: 'Poppins';
+  color: rgb(52, 52, 52);
+}
+dt{
+  margin-top: 10px;
+  font-family: 'Poppins';
 }
 .container {
   padding: 1rem;

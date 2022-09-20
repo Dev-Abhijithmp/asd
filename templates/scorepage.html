@@ -20,10 +20,18 @@
           </nav>  
      </div> 
 
-     <div>
+     <div class='blockscore'>
       <h2>Your score is {{score}}</h2>
-     </div>
-     <div>
+   
+     {%for i in response %}
+
+     <h3 id="qn">{{i.id}} . {{i.question}}</h3>
+     <h4>{{i.helpdata}}<h4>
+      <h4>you answered : {{i.answer}}</h4>
+    
+    
+    {%endfor%}
+   
       <button type="button">Generate pdf</button>
 
     <div>

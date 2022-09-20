@@ -19,3 +19,20 @@ class Guidelines(models.Model):
     def __str__(self):
         return self.heading
 
+class Scoredata(models.Model):
+    score=models.IntegerField()
+    desc=models.CharField(max_length=500)
+    def __str__(self):
+        return self.score
+class Answerdata(models.Model):
+    slnum =models.IntegerField()
+    question=models.CharField(max_length=500)
+    helpdata=models.CharField(max_length=500,blank=True)
+    answer=models.CharField(max_length=5)
+    def __str__(self):
+        return self.question
+class Score(models.Model):
+    username =models.CharField(max_length=500)
+    score=models.IntegerField()
+    def __str__(self):
+        return self.username

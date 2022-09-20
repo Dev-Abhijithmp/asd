@@ -12,7 +12,7 @@ import reportlab
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 import io
-from core.models import Guidelines, Questions
+from core.models import Answerdata, Guidelines, Questions
 
 # Create your views here.
 
@@ -29,40 +29,49 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['pass']
-        user = auth.authenticate(username="vyshnavi", password=password)
         print(email), print(password)
-        print(user)
-        if user is not None:
-            auth.login(request, user)
-            print(request.user)
-            return redirect('home')
+        if email  == "" or password =="":
+            messages.info(request, "please fill all the fields")
+            return redirect('login')
         else:
-            messages.info(request, 'Invalid Credentials')
-            return render(request, 'login.html')
+            user = auth.authenticate(username="vyshnavi", password=password)
+            
+            print(user)
+            if user is not None:
+                auth.login(request, user)
+                print(request.user)
+                return redirect('home')
+            else:
+                messages.info(request, 'Invalid Credentials')
+                return render(request, 'login.html')
 
     else:
-        return render(request,'login.html')
+        return render(request, 'login.html')
+        
 
 
 def register(request):
     if request.method == 'POST':
-        name = request.POST['username']
         email = request.POST['email']
         pass1 = request.POST['pass']
         pass2 = request.POST['pass1']
-        if pass1 == pass2:
-            if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email Taken')
-                return redirect('register')
-            else:
-
-                user = User.objects.create_user(
-                    username=email, password=pass1, email=email)
-                user.save()
-                return render(request, 'home.html')
-        else:
-            messages.info(request, 'Password not matching')
+        if pass1 == "" or pass2 == ""or email == "":
+            messages.info(request, 'please fill all the fields')
             return redirect('register')
+        else:
+            if pass1 == pass2:
+                if User.objects.filter(email=email).exists():
+                    messages.info(request, 'Email Taken')
+                    return redirect('register')
+                else:
+
+                    user = User.objects.create_user(
+                        username=email, password=pass1, email=email)
+                    user.save()
+                    return render(request, 'home.html')
+            else:
+                messages.info(request, 'Password not matching')
+                return redirect('register')
 
     else:
         return render(request, 'register.html')
@@ -75,46 +84,57 @@ def home(request):
     data = Questions.objects.all()
     # tmpjson = serializers.serialize('json', qn)
     # data = json.loads(tmpjson)
-    context={
-        'data':data
+    context = {
+        'data': data
     }
     return render(request, 'home.html', context)
+
+
 @login_required(login_url='login')
 @csrf_exempt
 def scorepage(request):
     # print(request.POST)
-    ansdata= request.POST
-    
+    ansdata = request.POST
+
     print("in score page")
-    rawdata =Questions.objects.all()
-    
-    i =1
-    score =0
+    rawdata = Questions.objects.all()
+
+    i = 1
+    score = 0
     tmpjson = serializers.serialize('json', rawdata)
-    m =json.loads(tmpjson)
-    
-    while i<= len(m):
+    m = json.loads(tmpjson)
+    response_data =[]
+
+    while i <= len(m):
+        
         if ansdata.get('ans'+str(i)) == m[i-1]['fields']['answer']:
-            score =score+1
-        i=i+1
+            score = score+1
+        response_data.append(
+            {   'id':i,
+                'question':m[i-1]['fields']['question'],
+                'helpdata':m[i-1]['fields']['helpdata'],
+                'answer':m[i-1]['fields']['answer']
+            }
+        )
+        Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'])
+        i = i+1
     print(score)
 
-        
- 
     # m= json.loads(ds)
     # print(m[0]['question'])
-    
-    context= {
-        'score':score
+
+    context = {
+        'score': score,
+        'response':response_data
     }
-    return render(request,'scorepage.html',context)
+    return render(request, 'scorepage.html', context)
+
 
 @login_required(login_url='login')
 def guidelines(request):
     data = Guidelines.objects.all()
-    context = {'data':data}
-    return render(request,'guidelines.html',context)
-
+    context = {'data': data}
+    return render(request, 'guidelines.html', context)
 
 
 @login_required(login_url='login')
@@ -123,10 +143,9 @@ def logout(request):
     return render(request, 'index.html')
 
 
-
 @login_required(login_url='login')
 def generate_pdf(request):
-    d =5
+    d = 5
     # Create a file-like buffer to receive PDF data.
     buffer = io.BytesIO()
 
