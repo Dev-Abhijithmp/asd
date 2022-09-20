@@ -9,6 +9,7 @@ function validate(){
             
         } else {
             window.alert("answer all the questions")
+            
             return false
             
         }
