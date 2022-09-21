@@ -31,7 +31,7 @@
     {% comment %} return validate() {% endcomment %}
  
 
-   <form id="frm" action="score" method="post" onsubmit ="validate()"> 
+   <form id="frm" action="score" method="post" onsubmit ="return validate()"> 
       {% csrf_token %}
       {%for i in data %}
 

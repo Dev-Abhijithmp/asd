@@ -22,6 +22,13 @@
 
      <div class='blockscore'>
       <h2>Your score is {{score}}</h2>
+
+      {%if score > 5 %}
+      <h3>The score indicates medium risk.this means you should take your child to his or her doctor for a follow-up screening.You can also seek early intervension services for yoiur child</h3>
+      {%else%}
+      <h3>The score indicates high risk.this means you should take your child to his or her doctor for a follow-up screening.You can also seek early intervension services for yoiur child</h3>
+      {%endif%}
+
    
      {%for i in response %}
 
@@ -32,7 +39,7 @@
     
     {%endfor%}
    
-      <button type="button">Generate pdf</button>
+      <a href={%url 'generate_pdf'%}><button type="button" >Generate pdf</button></a>
 
     <div>
   

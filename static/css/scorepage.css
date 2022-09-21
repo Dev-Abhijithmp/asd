@@ -6,6 +6,7 @@
     text-shadow: #000000;
     box-shadow: 2px;
     align-self: flex-start;
+    font-family: 'Poppins';
   }
   .space{
       width: 80%;
@@ -39,6 +40,7 @@
       color: rgb(144, 200, 172);
       font-size: 20pt;
       font-weight: 700;
+      font-family: 'Poppins';
       /* color: white;
       background-color: rgb(144, 200, 172);
       border-radius: 10px; */
@@ -51,6 +53,7 @@
   a:active {
   
     text-decoration: none;
+    font-family: 'Poppins';
   }
   .navbaritems:hover{
       color: #000000;

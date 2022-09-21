@@ -6,6 +6,7 @@
     text-shadow: #000000;
     box-shadow: 2px;
     align-self: flex-start;
+    font-family: 'Poppins';
   }
   .space{
       width: 80%;
@@ -17,6 +18,7 @@
   .navcontainer{
       display: flex;
       align-content: space-between;
+      font-family: 'Poppins';
   }
   
   .navbar{
@@ -39,6 +41,7 @@
       color: rgb(144, 200, 172);
       font-size: 20pt;
       font-weight: 700;
+      font-family: 'Poppins';
       /* background-color: rgb(144, 200, 172);
       border-radius: 10px; */
       
@@ -57,6 +60,7 @@
       width: 6rem;
       height: 2rem;
       border-radius: 10px;
+      font-family: 'Poppins';
   }
 a:link,
 a:visited,
@@ -64,4 +68,7 @@ a:hover,
 a:active {
 
   text-decoration: none;
+}
+h3,h1,h4,label{
+    font-family: 'Poppins';
 }

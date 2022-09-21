@@ -16,7 +16,6 @@ from core.models import Answerdata, Guidelines, Questions,Scoredata
 
 # Create your views here.
 
-
 def index(request):
     print(request.user)
     if request.user.is_authenticated:
@@ -118,16 +117,18 @@ def scorepage(request):
         )
         anquery =Answerdata.objects.filter(username=request.user.username,slnum=i)
         if anquery==None:
-            Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'],username=request.user.username)
-        
-        
+            Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'],username=request.user.username)        
         i = i+1
-    data =Scoredata.objects.get(username=request.user.username)
-    if data ==None :
+    try:
+       data =Scoredata.objects.filter(username=request.user.username)
+       print("in data")
+       print(data)
+   
        Scoredata.objects.create(username=request.user.username,score=score)
-    else:
-        data.score=score
-        data.save()
+    except:
+        datas=Scoredata.objects.get(username=request.user.username)
+        datas.score=score
+        datas.save()
 
 
     
