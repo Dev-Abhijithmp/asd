@@ -28,10 +28,10 @@
    <div class="container">
    <span style="display: flex;">  <h1>Answer these Questions</h1></span>
      
-    
+    {% comment %} return validate() {% endcomment %}
  
 
-   <form id="frm" action="score" method="post" onsubmit ="return validate()"> 
+   <form id="frm" action="score" method="post" onsubmit ="validate()"> 
       {% csrf_token %}
       {%for i in data %}
 

@@ -12,7 +12,7 @@ import reportlab
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 import io
-from core.models import Answerdata, Guidelines, Questions
+from core.models import Answerdata, Guidelines, Questions,Scoredata
 
 # Create your views here.
 
@@ -34,7 +34,7 @@ def login(request):
             messages.info(request, "please fill all the fields")
             return redirect('login')
         else:
-            user = auth.authenticate(username="vyshnavi", password=password)
+            user = auth.authenticate(username=email, password=password)
             
             print(user)
             if user is not None:
@@ -116,9 +116,24 @@ def scorepage(request):
                 'answer':m[i-1]['fields']['answer']
             }
         )
-        Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'])
+        anquery =Answerdata.objects.filter(username=request.user.username,slnum=i)
+        if anquery==None:
+            Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'],username=request.user.username)
+        
+        
         i = i+1
+    data =Scoredata.objects.get(username=request.user.username)
+    if data ==None :
+       Scoredata.objects.create(username=request.user.username,score=score)
+    else:
+        data.score=score
+        data.save()
+
+
+    
     print(score)
+    
+    print(request.user)
 
     # m= json.loads(ds)
     # print(m[0]['question'])
