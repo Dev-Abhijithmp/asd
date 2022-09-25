@@ -67,7 +67,9 @@ def register(request):
                     user = User.objects.create_user(
                         username=email, password=pass1, email=email)
                     user.save()
-                    return render(request, 'home.html')
+                    usern = auth.authenticate(username=email, password=pass1)
+                    auth.login(request, usern)
+                    return redirect('home')
             else:
                 messages.info(request, 'Password not matching')
                 return redirect('register')
@@ -115,20 +117,25 @@ def scorepage(request):
                 'answer':m[i-1]['fields']['answer']
             }
         )
-        anquery =Answerdata.objects.filter(username=request.user.username,slnum=i)
-        if anquery==None:
-            Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'],username=request.user.username)        
+        try:
+            anquery =Answerdata.objects.get(username=request.user.username,slnum=i)
+            print(anquery)
+            anquery.question =m[i-1]['fields']['question']
+            anquery.helpdata =m[i-1]['fields']['helpdata']
+            anquery.answer =m[i-1]['fields']['answer']
+            anquery.save()
+        except:
+            Answerdata.objects.create(slnum=i,question=m[i-1]['fields']['question'],helpdata=m[i-1]['fields']['helpdata'],answer=m[i-1]['fields']['answer'],username=request.user.username)      
+        
         i = i+1
     try:
-       data =Scoredata.objects.filter(username=request.user.username)
-       print("in data")
-       print(data)
-   
-       Scoredata.objects.create(username=request.user.username,score=score)
-    except:
         datas=Scoredata.objects.get(username=request.user.username)
+        print("in data")
+        print(datas)
         datas.score=score
         datas.save()
+    except: 
+         Scoredata.objects.create(username=request.user.username,score=score)
 
 
     

@@ -21,10 +21,8 @@
       font-family: 'Poppins';
   }
   
-  .navbar{
-      
+  .navbar{ 
       display: flex;
-  
       flex-direction: row;
       
       
@@ -69,6 +67,6 @@ a:active {
 
   text-decoration: none;
 }
-h3,h1,h4,label{
+.fontstyle{
     font-family: 'Poppins';
 }

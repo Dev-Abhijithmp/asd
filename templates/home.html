@@ -26,7 +26,7 @@
     
      <br>
    <div class="container">
-   <span style="display: flex;">  <h1>Answer these Questions</h1></span>
+   <span style="display: flex;" class="fontstyle">  <h1>Answer these Questions</h1></span>
      
     {% comment %} return validate() {% endcomment %}
  
@@ -35,9 +35,9 @@
       {% csrf_token %}
       {%for i in data %}
 
-      <h3 id="qn">{{i.slnum}} . {{i.question}}</h3>
+      <h3 id="qn" class="fontstyle">{{i.slnum}} . {{i.question}}</h3>
       <h4>{{i.helpdata}}<h4>
-     <label for="yes">yes</label>
+     <label for="yes" class="fontstyle">yes</label>
      
      <input type="radio" name="ans{{i.slnum}}" id="yes" value="yes">
      <label for="no">no</label>
