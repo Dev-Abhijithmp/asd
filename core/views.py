@@ -11,6 +11,10 @@ from django.core import serializers
 import reportlab
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import A4,letter
+from reportlab.lib.colors import HexColor
+from reportlab.lib import colors
 import io
 from core.models import Answerdata, Guidelines, Questions,Scoredata
 
@@ -166,24 +170,56 @@ def logout(request):
     return render(request, 'index.html')
 
 
+
 @login_required(login_url='login')
 def generate_pdf(request):
-    d = 5
+    score =Scoredata.objects.get(username=request.user.username)
+    ans =Answerdata.objects.filter(username=request.user.username)
     # Create a file-like buffer to receive PDF data.
     buffer = io.BytesIO()
 
     # Create the PDF object, using the buffer as its "file."
-    p = canvas.Canvas(buffer)
+    c = canvas.Canvas(buffer,pagesize=A4,bottomup=0)
 
     # Draw things on the PDF. Here's where the PDF generation happens.
     # See the ReportLab documentation for the full list of functionality.
-    p.drawString(100, 100, "your score = ")
-
+    textob =c.beginText()
+    textob.setTextOrigin(3*inch,inch/2)
+    textob.setFont('Helvetica',20)
+    textob.setFillColor(colors.green)
+    textob.textLine('       ASD report')
+    c.drawText(textob)
+    textob.setFillColor(colors.black)
+    textob.setTextOrigin(inch/2,inch/1.25)
+    textob.setFont('Helvetica',8)
+    line = "your score = "+str(score.score)
+    textob.textLine(line)
+    textob.textLine('')
+    textob.setFillColor(colors.red)
+    if score.score <5:
+        textob.textLine("The score indicates medium risk.this means you should take your child to his or her doctor for a follow-up screening.")
+        textob.textLine("You can also seek early intervension services for yoiur child")
+    else:
+        textob.textLine("The score indicates high risk.this means you should take your child to his or her doctor for a follow-up screening.")
+        textob.textLine("You can also seek early intervension services for yoiur child")
+    textob.textLine('')
+    textob.setFillColor(colors.black)
+    lines =[]
+    for i in ans:
+        lines.append(str(i.slnum)+". "+i.question)
+        if i.helpdata != "":
+            lines.append(i.helpdata)
+        lines.append("You answeres :"+i.answer)
+        lines.append("")
+    for i in lines:
+        textob.textLine(i)
+            
+    c.drawText(textob)
     # Close the PDF object cleanly, and we're done.
-    p.showPage()
-    p.save()
+    c.showPage()
+    c.save()
 
     # FileResponse sets the Content-Disposition header so that browsers
     # present the option to save the file.
     buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
+    return FileResponse(buffer, as_attachment=True, filename=request.user.username+'.pdf')
