@@ -163,6 +163,10 @@ def guidelines(request):
     context = {'data': data}
     return render(request, 'guidelines.html', context)
 
+@login_required(login_url='login')
+def training(request):
+    return render(request,'training.html`')
+
 
 @login_required(login_url='login')
 def logout(request):
