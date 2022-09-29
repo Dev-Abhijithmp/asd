@@ -6,6 +6,7 @@
   text-shadow: #000000;
   box-shadow: 2px;
   align-self: flex-start;
+  font-family: 'Poppins';
 }
 .space {
   width: 80%;
@@ -40,14 +41,17 @@ a:active {
   color: rgb(144, 200, 172);
   font-size: 20pt;
   font-weight: 700;
+  font-family: 'Poppins';
 }
 
 .navbaritems:hover {
   color: #000000;
+  font-family: 'Poppins';
 }
 .content{
   margin-left: 2rem;
   margin-top: 20px;
+  font-family: 'Poppins';
 }
 
 dd{
@@ -80,6 +84,7 @@ dt{
   box-shadow: 2px;
   align-self: flex-start;
   font-weight: 600;
+  font-family: 'Poppins';
 }
 .guideline {
   width: 50rem;
@@ -94,4 +99,5 @@ dt{
   box-shadow: 2px;
   align-self: flex-start;
   font-weight: 300;
+  font-family: 'Poppins';
 }

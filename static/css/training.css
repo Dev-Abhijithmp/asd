@@ -6,6 +6,7 @@
     text-shadow: #000000;
     box-shadow: 2px;
     align-self: flex-start;
+    font-family: 'Poppins';
   }
   .space {
     width: 80%;
@@ -23,6 +24,7 @@
   .navcontainer {
     display: flex;
     align-content: space-between;
+    font-family: 'Poppins';
   }
   
   .navbar {
@@ -40,26 +42,19 @@
     color: rgb(144, 200, 172);
     font-size: 20pt;
     font-weight: 700;
+    font-family: 'Poppins';
   }
   
   .navbaritems:hover {
     color: #000000;
+    font-family: 'Poppins';
   }
   .content{
     margin-left: 2rem;
     margin-top: 20px;
   }
   
-  dd{
-    margin: 5px;
-    padding-bottom: 1rem;
-    font-family: 'Poppins';
-    color: rgb(52, 52, 52);
-  }
-  dt{
-    margin-top: 10px;
-    font-family: 'Poppins';
-  }
+  
   .container {
     padding: 1rem;
     margin: 1rem;
@@ -70,29 +65,7 @@
     width: 6rem;
     height: 2rem;
     border-radius: 10px;
-  }
-  .guidelinehead {
-    margin-top: 10px;
-    text-align: left;
-    font-size: 20pt;
-    color: black;
-    text-shadow: #000000;
-    box-shadow: 2px;
-    align-self: flex-start;
-    font-weight: 600;
-  }
-  .guideline {
-    width: 50rem;
-    text-overflow: ellipsis;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    text-align: left;
-    font-size: 20pt;
-    color: black;
-    text-shadow: #000000;
-    box-shadow: 2px;
-    align-self: flex-start;
-    font-weight: 300;
+    font-family: 'Poppins';
   }
   
+   

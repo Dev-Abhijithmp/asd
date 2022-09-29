@@ -165,7 +165,7 @@ def guidelines(request):
 
 @login_required(login_url='login')
 def training(request):
-    return render(request,'training.html`')
+    return render(request,'training.html')
 
 
 @login_required(login_url='login')
