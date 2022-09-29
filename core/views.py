@@ -123,7 +123,7 @@ def scorepage(request):
         )
         try:
             anquery =Answerdata.objects.get(username=request.user.username,slnum=i)
-            print(anquery)
+            
             anquery.question =m[i-1]['fields']['question']
             anquery.helpdata =m[i-1]['fields']['helpdata']
             anquery.answer =m[i-1]['fields']['answer']
@@ -134,8 +134,7 @@ def scorepage(request):
         i = i+1
     try:
         datas=Scoredata.objects.get(username=request.user.username)
-        print("in data")
-        print(datas)
+        
         datas.score=score
         datas.save()
     except: 
@@ -143,9 +142,7 @@ def scorepage(request):
 
 
     
-    print(score)
     
-    print(request.user)
 
     # m= json.loads(ds)
     # print(m[0]['question'])
@@ -200,7 +197,7 @@ def generate_pdf(request):
     textob.textLine(line)
     textob.textLine('')
     textob.setFillColor(colors.red)
-    if score.score <5:
+    if score.score <7:
         textob.textLine("The score indicates medium risk.this means you should take your child to his or her doctor for a follow-up screening.")
         textob.textLine("You can also seek early intervension services for yoiur child")
     else:
