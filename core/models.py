@@ -1,5 +1,5 @@
+
 from django.db import models
-from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -32,4 +32,12 @@ class Answerdata(models.Model):
 class Scoredata(models.Model):
     username = models.CharField(max_length=256,blank=True)
     score =models.IntegerField()
+
+
+class Training(models.Model):
+    level = models.IntegerField()
+    imagurl =models.CharField(max_length=500)
+    imageans =models.CharField(max_length=500)
+    options =models.CharField(max_length =500)
+    
     

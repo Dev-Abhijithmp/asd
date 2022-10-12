@@ -50,8 +50,14 @@
     font-family: 'Poppins';
   }
   .content{
-    margin-left: 2rem;
+    
+    
     margin-top: 20px;
+    align-content: space-around;
+  
+    align-items: center;
+    display: flex;
+    /* flex-direction: column; */
   }
   
   
@@ -68,4 +74,20 @@
     font-family: 'Poppins';
   }
   
+  .image{
+    width: 600px;
+    height: 400px;
+    align-items: center;
+  }
+  .button {
+    margin: 30px;
+  
+    text-align: center;
+    color: white;
+    background-color: rgb(144, 200, 172);
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    padding-top: 5px;
+  }
    
