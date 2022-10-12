@@ -23,7 +23,13 @@ from core.models import Answerdata, Guidelines, Questions,Scoredata
 def index(request):
     print(request.user)
     if request.user.is_authenticated:
-        return redirect('home')
+        data = Questions.objects.all()
+    # tmpjson = serializers.serialize('json', qn)
+    # data = json.loads(tmpjson)
+        context = {
+        'data': data
+        }
+        return render(request, 'home.html',context)
     else:
         return render(request, 'index.html')
 
@@ -43,7 +49,11 @@ def login(request):
             if user is not None:
                 auth.login(request, user)
                 print(request.user)
-                return redirect('home')
+                data = Questions.objects.all()
+                context = {
+                  'data': data
+                  }
+                return render(request, 'home.html',context)
             else:
                 messages.info(request, 'Invalid Credentials')
                 return render(request, 'login.html')
@@ -163,6 +173,9 @@ def guidelines(request):
 @login_required(login_url='login')
 def training(request):
     return render(request,'training.html')
+@login_required(login_url='login')
+def level2(request):
+    return render(request,'level2.html')
 
 
 @login_required(login_url='login')
