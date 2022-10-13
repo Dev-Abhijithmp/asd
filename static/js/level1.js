@@ -4,59 +4,59 @@
 data=[
     {
         'image':'static/images/angry_1.jpg',
-        'emotion':'angry'
+        'emotion':'Angry'
     },
     {
         'image':'static/images/angry_2.jpg',
-        'emotion':'angry'
+        'emotion':'Angry'
     },
     {
         'image':'static/images/disguest_2.jpg',
-        'emotion':'disguest'
+        'emotion':'Disguest'
     },
     {
         'image':'static/images/disguest_4.jpg',
-        'emotion':'disguest'
+        'emotion':'Disguest'
     },
     {
         'image':'static/images/fear_1.jpg',
-        'emotion':'fear'
+        'emotion':'Fear'
     },
     {
         'image':'static/images/fear_2.jpg',
-        'emotion':'fear'
+        'emotion':'Fear'
     },
     {
         'image':'static/images/happy_4.jpg',
-        'emotion':'happy'
+        'emotion':'Happy'
     },
     {
         'image':'static/images/happy_5.jpg',
-        'emotion':'happy'
+        'emotion':'Happy'
     },
     {
         'image':'static/images/nuetral_1.jpg',
-        'emotion':'nuetral'
+        'emotion':'Nuetral'
     },
     {
         'image':'static/images/nuetral_2.jpg',
-        'emotion':'nuetral'
+        'emotion':'Nuetral'
     },
     {
         'image':'static/images/sad_1.jpg',
-        'emotion':'sad'
+        'emotion':'Sad'
     },
     {
         'image':'static/images/sad_2.jpg',
-        'emotion':'sad'
+        'emotion':'Sad'
     },
     {
         'image':'static/images/surprise_1.jpg',
-        'emotion':'surprice'
+        'emotion':'Surprice'
     },
     {
         'image':'static/images/surprise_2.jpg',
-        'emotion':'surprice'
+        'emotion':'Surprice'
     },
 ]
 
@@ -69,11 +69,15 @@ function next() {
     if (index< data.length) {
         document.getElementById('img').src = data[index]['image']
         document.getElementById('emotion').innerHTML = data[index]['emotion']
+        if (index==data.length-1) {
+            
+            document.getElementById('l2').classList.remove('display')
+            
+        }
         index++
         
     }
-    console.log("next")
-    console.log(index)
+   
 
     
 }
@@ -81,11 +85,15 @@ function prev() {
     
     if (index>0) {
         index--
+        if (index ==data.length -1) {
+            document.getElementById('l2').className ='display button'
+            
+            
+        }
         document.getElementById('img').src = data[index]['image']
         document.getElementById('emotion').innerHTML = data[index]['emotion']
         
         
     }
-    console.log("prev")
-    console.log(index)
+    
 }

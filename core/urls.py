@@ -10,5 +10,6 @@ urlpatterns =[
     path('score',views.scorepage,name='score'),
     path('guidelines',views.guidelines,name='guidelines'),
     path('generate_pdf',views.generate_pdf,name='generate_pdf'),
-    path('training',views.training,name='training')
+    path('training',views.training,name='training'),
+    path('level2',views.level2,name="level2")
 ]

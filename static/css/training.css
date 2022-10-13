@@ -44,7 +44,7 @@
     font-weight: 700;
     font-family: 'Poppins';
   }
-  
+
   .navbaritems:hover {
     color: #000000;
     font-family: 'Poppins';
@@ -66,13 +66,7 @@
     margin: 1rem;
     margin-left: 2rem;
   }
-  .button {
-    margin-top: 6rem;
-    width: 6rem;
-    height: 2rem;
-    border-radius: 10px;
-    font-family: 'Poppins';
-  }
+ 
   
   .image{
     width: 600px;
@@ -80,14 +74,19 @@
     align-items: center;
   }
   .button {
-    margin: 30px;
-  
-    text-align: center;
-    color: white;
+    width: 145px;
+    padding: 12px 7px;
+    margin: 3px 20px ;
+    border: none;
+    border-radius: 8px;
     background-color: rgb(144, 200, 172);
-    border-radius: 20px;
-    width: 200px;
-    height: 30px;
-    padding-top: 5px;
+    color:white;
+    font-size: 16px;
+    font-weight: bold; 
+    cursor: pointer;
+    font-family:'Poppins';
+  }
+  .display{
+    display:none;
   }
    
