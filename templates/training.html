@@ -28,14 +28,15 @@
       
 
     
-      <img id="img" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="image" class="image">
+      <img id="img" src="" alt="image" class="image">
       <div style="width:10rem"></div>
      <div>
-      <div id="emotion" style="color: gray;text-align:center;font-size:3rem;font-family: 'Poppins';">fear</div>
+      <div id="emotion" style="color: #1a535c;text-align:center;font-size:3rem;font-family: 'Poppins';">fear</div>
       <div style="margin-top:5rem">
       <button id="prev" class="button" onClick="prev()">PREV</button>
       <button id="next" class="button" onClick="next()">NEXT</button>
-      <button id="l2" class="button display" onClick="next()">LEVEL 2</button>
+      <a href="{%url 'level2'%}"> <button id="l2" class="button2 display" >LEVEL 2</button></a>
+     
       </div>
      </div>    
 

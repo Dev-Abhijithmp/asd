@@ -84,12 +84,13 @@ function next() {
 function prev() {
     
     if (index>0) {
-        index--
+        
         if (index ==data.length -1) {
-            document.getElementById('l2').className ='display button'
+            document.getElementById('l2').className ='display button2'
             
             
         }
+        index--
         document.getElementById('img').src = data[index]['image']
         document.getElementById('emotion').innerHTML = data[index]['emotion']
         

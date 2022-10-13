@@ -2,50 +2,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{%static 'css/training.css'%}">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    
-  
+    <link rel="stylesheet" href="{%static 'css/level2.css'%}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
-<div class="navcontainer">
-      <div class="heading">Training</div>
+    <div class="navcontainer">
+      <div class="heading">Level2</div>
       <div class="space"></div>
       <nav class="navbar">
-        <a class="navbaritems " href="{%url 'home'%}">Home</a>
-        <a class="navbaritems">Training</a>
+        <a class="navbaritems" href="{%url 'home'%}">Home</a>
+        <a class="navbaritems" href="{%url 'training'%}">Training</a>
         <a class="navbaritems" href="{%url 'guidelines'%}">Guidelines</a>
         <a class="navbaritems" href="{%url 'logout'%}">Logout</a>
       </nav>
     </div>
-    <br>
+    <br />
     <div class="content">
-      
+      <img id="img" alt="image" class="image" />
 
-    
-      <img id="img" alt="image" class="image">
-     <div>
-      <div id='emotion'></div>
-      <button id="prev" class="button" onClick="prev()">prev</button>
-      <button id="next" class="button" onClick="next()">next</button>
-     </div>
-
-      
-    
-    <div>
+      <div  style='margin-left:10rem;align-items: center;'>
+        <div>
+          <label id="opt11" for="opt1" class="leb"></label>
+          <input type="radio" name="rad" id="opt1" />
+          <label id="opt22" for="opt2" class="leb"></label>
+          <input type="radio" name="rad" id="opt2" />
+          <label id="opt33" for="opt3" class="leb"></label>
+          <input type="radio" name="rad" id="opt3" />
+          <label id="opt44" for="opt4" class="leb"></label>
+          <input type="radio" name="rad" id="opt4" />
+          
+        </div>
+        <button id="next" class="button" onClick="return validate()" style="margin-top: 2rem;align-self:center;">next</button>
+        
+      </div>
     </div>
-      
-    </div>
 
-
- 
- 
-    <script src="{%static 'js/level1.js'%}"></script>
+    <script src="{%static 'js/level2.js'%}"></script>
   </body>
 </html>
-
