@@ -36,41 +36,41 @@ data =[
         'opt4':"Excited"
 
     },
-    // {
-    //     'image':'static/images/happy_9.jpg',
-    //     'answer':'Happy',
-    //     'opt1':'Angry',
-    //     'opt2':"sad",
-    //     'opt3':"Fear",
-    //     'opt4':"Happy"
+    {
+        'image':'static/images/happy_9.jpg',
+        'answer':'Happy',
+        'opt1':'Angry',
+        'opt2':"sad",
+        'opt3':"Fear",
+        'opt4':"Happy"
 
-    // },{
-    //     'image':'static/images/nuetral_3.jpg',
-    //     'answer':'Nuetral',
-    //     'opt1':'Nuetral',
-    //     'opt2':"sad",
-    //     'opt3':"Happy",
-    //     'opt4':"Excited"
+    },{
+        'image':'static/images/nuetral_3.jpg',
+        'answer':'Nuetral',
+        'opt1':'Nuetral',
+        'opt2':"sad",
+        'opt3':"Happy",
+        'opt4':"Excited"
 
-    // },
-    // {
-    //     'image':'static/images/sad_5.jpg',
-    //     'answer':'Sad',
-    //     'opt1':'Nuetral',
-    //     'opt2':"sad",
-    //     'opt3':"Happy",
-    //     'opt4':"Excited"
+    },
+    {
+        'image':'static/images/sad_5.jpg',
+        'answer':'Sad',
+        'opt1':'Nuetral',
+        'opt2':"sad",
+        'opt3':"Happy",
+        'opt4':"Excited"
 
-    // },
-    // {
-    //     'image':'static/images/surprise_4.jpg',
-    //     'answer':'Surprise',
-    //     'opt1':'Nuetral',
-    //     'opt2':"sad",
-    //     'opt3':"Happy",
-    //     'opt4':"Surprise"
+    },
+    {
+        'image':'static/images/surprise_4.jpg',
+        'answer':'Surprise',
+        'opt1':'Nuetral',
+        'opt2':"sad",
+        'opt3':"Happy",
+        'opt4':"Surprise"
 
-    // },
+    },
 ]
 document.getElementById('img').src=data[0]['image']
 document.getElementById('opt11').textContent=data[0]['opt1']
