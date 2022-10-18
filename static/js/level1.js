@@ -52,11 +52,57 @@ data=[
     },
     {
         'image':'static/images/surprise_1.jpg',
-        'emotion':'Surprice'
+        'emotion':'Surprise'
     },
     {
         'image':'static/images/surprise_2.jpg',
-        'emotion':'Surprice'
+        'emotion':'Surprise'
+    },
+   
+    {
+        'image':'static/image/blue.jpeg',
+        'emotion':'Blue'
+    },
+    {
+        'image':'static/image/cat.jpeg',
+        'emotion':'Cat'
+    },{
+        'image':'static/image/crow.jpeg',
+        'emotion':'Crow'
+    },{
+        'image':'static/image/giraffe.jpeg',
+        'emotion':'Giraffe'
+    },{
+        'image':'static/image/green.jpeg',
+        'emotion':'Green'
+    },{
+        'image':'static/image/jasmine.jpeg',
+        'emotion':'Jasmine'
+    },{
+        'image':'static/image/lion.jpeg',
+        'emotion':'Lion'
+    },{
+        'image':'static/image/lotus.jpeg',
+        'emotion':'Lotus'
+    },{
+        'image':'static/image/parrot.jpeg',
+        'emotion':'Parrot'
+    },{
+        'image':'static/image/pigeons.jpeg',
+        'emotion':'Pigeons'
+    },{
+        'image':'static/image/red.jpeg',
+        'emotion':'Red'
+    },{
+        'image':'static/image/rose.jpeg',
+        'emotion':'Rose'
+    },{
+        'image':'static/image/sunflower.jpeg',
+        'emotion':'Sunflower'
+    },
+    {
+        'image':'static/image/yellow.jpeg',
+        'emotion':'Yellow'
     },
 ]
 
