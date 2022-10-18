@@ -53,10 +53,6 @@ def login(request):
             if user is not None:
                 auth.login(request, user)
                 print(request.user)
-                data = Questions.objects.all()
-                context = {
-                  'data': data
-                  }
                 return redirect('home')
             else:
                 messages.info(request, 'Invalid Credentials')

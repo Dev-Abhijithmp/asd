@@ -52,3 +52,12 @@ a:link, a:visited,  a:hover, a:active
     flex-direction: column;    
     -ms-flex-align: baseline;
 }
+.datacontainer{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+}
+p{
+    margin-left: 5rem;
+    margin-top: 5rem;
+}
