@@ -12,9 +12,10 @@
 
 
 
-<body style="background-color:#F9F3EE;" background="{%static 'images/logoss.jpeg'%}">
+<body>
     <div class="container">
         <div class="heading"> Welcome to ASD helpmate</div>
+        <img src="{%static 'images/logoss.jpeg'%}" style="height:300px;width:150px;margin:auto;">
         <div class="parent">
             <a href="{% url 'register'%}" target="_self" ><div class="register child">Register</div></a>
            <a href ="{%url 'login'%}" target="_self"> <div class="login child">Login</div></a>
