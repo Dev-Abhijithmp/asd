@@ -29,7 +29,7 @@ def index(request):
         context = {
         'data': data
         }
-        return render(request, 'home.html',context)
+        return redirect('home')
     else:
         return render(request, 'index.html')
 
@@ -42,6 +42,10 @@ def login(request):
         if email  == "" or password =="":
             messages.info(request, "please fill all the fields")
             return redirect('login')
+        if len(password)<8:
+            messages.info(request, "password length is less than 8")
+            return redirect('login')
+
         else:
             user = auth.authenticate(username=email, password=password)
             
@@ -53,7 +57,7 @@ def login(request):
                 context = {
                   'data': data
                   }
-                return render(request, 'home.html',context)
+                return redirect('home')
             else:
                 messages.info(request, 'Invalid Credentials')
                 return render(request, 'login.html')
@@ -71,11 +75,16 @@ def register(request):
         if pass1 == "" or pass2 == ""or email == "":
             messages.info(request, 'please fill all the fields')
             return redirect('register')
+        
         else:
             if pass1 == pass2:
                 if User.objects.filter(email=email).exists():
                     messages.info(request, 'Email Taken')
                     return redirect('register')
+                elif len(pass1)<8:
+                    messages.info(request, 'password length is less than 8')
+                    return redirect('register')
+
                 else:
 
                     user = User.objects.create_user(
