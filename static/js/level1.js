@@ -60,48 +60,48 @@ data=[
     },
    
     {
-        'image':'static/image/blue.jpeg',
+        'image':'static/images/blue.jpeg',
         'emotion':'Blue'
     },
     {
-        'image':'static/image/cat.jpeg',
+        'image':'static/images/cat.jpeg',
         'emotion':'Cat'
     },{
-        'image':'static/image/crow.jpeg',
+        'image':'static/images/crow.jpeg',
         'emotion':'Crow'
     },{
-        'image':'static/image/giraffe.jpeg',
+        'image':'static/images/giraffe.jpeg',
         'emotion':'Giraffe'
     },{
-        'image':'static/image/green.jpeg',
+        'image':'static/images/green.jpeg',
         'emotion':'Green'
     },{
-        'image':'static/image/jasmine.jpeg',
+        'image':'static/images/jasmine.jpeg',
         'emotion':'Jasmine'
     },{
-        'image':'static/image/lion.jpeg',
+        'image':'static/images/lion.jpeg',
         'emotion':'Lion'
     },{
-        'image':'static/image/lotus.jpeg',
+        'image':'static/images/lotus.jpeg',
         'emotion':'Lotus'
     },{
-        'image':'static/image/parrot.jpeg',
+        'image':'static/images/parrot.jpeg',
         'emotion':'Parrot'
     },{
-        'image':'static/image/pigeons.jpeg',
-        'emotion':'Pigeons'
+        'image':'static/images/pigeons.jpeg',
+        'emotion':'Pigeon'
     },{
-        'image':'static/image/red.jpeg',
+        'image':'static/images/red.jpeg',
         'emotion':'Red'
     },{
-        'image':'static/image/rose.jpeg',
+        'image':'static/images/rose.jpeg',
         'emotion':'Rose'
     },{
-        'image':'static/image/sunflower.jpeg',
+        'image':'static/images/sunflower.jpeg',
         'emotion':'Sunflower'
     },
     {
-        'image':'static/image/yellow.jpeg',
+        'image':'static/images/yellow.jpeg',
         'emotion':'Yellow'
     },
 ]
