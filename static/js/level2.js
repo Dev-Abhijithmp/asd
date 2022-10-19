@@ -208,7 +208,14 @@ function next() {
           console.log(score);
         }
       }
+      document.getElementById('opt1').checked =false
+      document.getElementById('opt2').checked =false
+      document.getElementById('opt3').checked =false
+      document.getElementById('opt4').checked =false
+      
+
     });
+    
 
     if (index == data.length-1) {
       console.log(score);
